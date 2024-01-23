@@ -19,3 +19,24 @@ class Animate(Scene):
         icon = SVGMobject(f"{PATH}\\Red_X.svg").move_to(arrow2.get_midpoint()).scale(0.2)
         self.play(DrawBorderThenFill(icon))
         self.wait(2)
+
+
+class WorldSize(Scene):
+    def construct(self):
+        earth = ImageMobject(f"{PATH}\\Earth.png").scale(0.3).to_edge(LEFT,buff=2.5)
+        self.play(FadeIn(earth))
+
+        earthName = Text("Terra", font="Minecraftia",font_size=24).next_to(earth,DOWN)
+        earthSurfaceArea = Text("Área: 510,064,000km²",font="Minecraftia",font_size=24).next_to(earth,UP)
+        earthRadius = Text("Raio: 6,371km",font="Minecraftia",font_size=24).next_to(earthSurfaceArea,UP)
+        self.play(Write(VGroup(earthName,earthSurfaceArea, earthRadius)))
+        
+        minecraftMap = ImageMobject(f"{PATH}\\MinecraftWorldSingle.png").to_edge(RIGHT, buff=2.5)
+        minecraftName = Text("Minecraft Map", font="Minecraftia",font_size=24).next_to(minecraftMap,DOWN)
+        minecraftSurfaceArea = Text("Área: 3,600,000,000km²",font="Minecraftia",font_size=24).next_to(minecraftMap,UP)
+        minecraftRadius = Text("Raio: 16,925km",font="Minecraftia",font_size=24).next_to(minecraftSurfaceArea,UP)
+
+        self.play(FadeIn(minecraftMap))
+        self.play(Write(VGroup(minecraftName,minecraftSurfaceArea,minecraftRadius)))
+        
+        self.wait(2)
