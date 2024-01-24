@@ -40,3 +40,22 @@ class WorldSize(Scene):
         self.play(Write(VGroup(minecraftName,minecraftSurfaceArea,minecraftRadius)))
         
         self.wait(2)
+        
+
+
+
+class PerlinNoise(Scene):
+    def construct(self):
+        noiseImg = ImageMobject(f"{PATH}\\PerlinNoise.png").scale(2)
+        self.play(FadeIn(noiseImg))
+        perlin = Text("Perlin noise",font="Minecraftia",font_size=30).next_to(noiseImg,DOWN)
+        self.play(Write(perlin))
+        self.wait(4)
+
+class WhiteNoise(Scene):
+    def construct(self):
+        noiseImg = ImageMobject(f"{PATH}\\WhiteNoise.jpeg").scale(2)
+        self.play(FadeIn(noiseImg))
+        perlin = Text("White noise",font="Minecraftia",font_size=30).next_to(noiseImg,DOWN)
+        self.play(Write(perlin))
+        self.wait(4)
