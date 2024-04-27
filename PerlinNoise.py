@@ -123,3 +123,27 @@ class PerlinNoise(Scene):
         self.play(Write(cubicInterpolationFormula))
 
         self.wait(2)
+
+class PerlinNoiseFormula(Scene):
+    def construct(self):
+        dotProductText = Text("Produto Escalar",font="Fira Code",font_size=24).shift(UP * 2)
+        self.play(Write(dotProductText))
+        
+        dotProductFormula = MathTex(
+            r"\mathbf{a} \cdot \mathbf{b} = |\mathbf{a}| \cdot |\mathbf{b}| \cdot \cos(\theta)",
+        ).next_to(dotProductText,DOWN).scale(0.8)
+        
+        self.play(Write(dotProductFormula))
+
+        cubicInterpolationText = Text("Interpolação Cúbica",font="Fira Code",font_size=24).next_to(dotProductFormula,DOWN,buff=0.6)
+        
+        self.play(Write(cubicInterpolationText))
+
+        cubicInterpolationFormula = MathTex(
+            "f(t) = (1 - t)^3 \\cdot P_0 + 3(1 - t)^2 \\cdot t \\cdot P_1",
+            "+ 3(1 - t) \\cdot t^2 \\cdot P_2 + t^3 \\cdot P_3"
+        ).scale(0.5).next_to(cubicInterpolationText,DOWN)
+        
+        self.play(Write(cubicInterpolationFormula))
+
+        self.wait(2)

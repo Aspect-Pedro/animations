@@ -60,3 +60,13 @@ class Animate2(Scene):
             expression_grid.add(row_expression)
 
         return expression_grid
+
+class Animate3(Scene):
+    def construct(self):
+        text = Text("batatadoce",font="Minecraftia",color=WHITE).scale(1)
+        seed = Text("Seed: 2320918635681", font="Minecraftia").scale(.8)
+        
+        self.play(Write(text),run_time=1)
+        self.wait(1)
+        self.play(Transform(text,seed),run_time=1)
+        self.wait(2)
